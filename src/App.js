@@ -3,8 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
+import Pagination from './components/Pagination/Pagination';
 
 function App() {
+  
   let [pageNumber, setPageNumber] = useState(1);
   let[fetchedData, updateFetchedData] = useState([]);
   let {info, results} = fetchedData; //destructuring data from api
@@ -23,7 +25,6 @@ function App() {
       <h1 className="text-center fuente my-3">
         Rick & Morty <span className="text-primary">Finder</span>
       </h1>
-      <p className="text-center">Maded with bootstrap</p>
 
       <div className="container">
         <div className="row">
@@ -37,6 +38,9 @@ function App() {
           </div>
         </div>
       </div>
+
+      <Pagination pageNumber = {pageNumber} setPageNumber={setPageNumber}/>
+      <p className="text-center">Maded with bootstrap</p>
     </div>
   );
 }
