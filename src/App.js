@@ -1,9 +1,23 @@
+import React, { useState, useEffect } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Cards from "./components/Cards/Cards";
 import Filters from "./components/Filters/Filters";
 
 function App() {
+  let [pageNumber, setPageNumber] = useState(1);
+  let[fetchedData, updateFetchedData] = useState([]);
+  let {info, results} = fetchedData; //destructuring data from api
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  
+  //useEffect hook
+  useEffect(()=>{
+    (async function(){
+      let data = await fetch(api).then(res=>res.json()); //fetch data from api 
+      updateFetchedData(data); 
+    })()//iife js
+  },[api]);
+
   return (
     <div className="App">
       <h1 className="text-center fuente my-3">
