@@ -48,9 +48,6 @@ const Home = () => {
   return (
     <div className="App">
       
-      
-  
-      
       <Search setPageNumber = {setPageNumber} setSearch = {setSearch}/>
       
       <div className="container">
