@@ -27,7 +27,9 @@ function App() {
       <h1 className="text-center fuente my-3">
         Rick & Morty <span className="text-primary">Finder</span>
       </h1>
+      
       <Search setPageNumber = {setPageNumber} setSearch = {setSearch}/>
+      
       <div className="container">
         <div className="row">
           <div className="col-3">
@@ -41,7 +43,11 @@ function App() {
         </div>
       </div>
 
-      <Pagination pageNumber = {pageNumber} setPageNumber={setPageNumber}/>
+      <Pagination 
+      info={info} 
+      pageNumber={pageNumber} 
+      setPageNumber={setPageNumber}
+      />
       <p className="text-center">Maded with bootstrap</p>
     </div>
   );
